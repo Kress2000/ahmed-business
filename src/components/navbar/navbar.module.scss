@@ -1,0 +1,90 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+
+#navbar {
+  :global {
+    @include page-setting;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    @include mq($md) {
+      height: 40px;
+    }
+    @include mq($sm) {
+      height: 30px;
+    }
+    .nav {
+      min-width: calc(100% - pxToVw(50));
+      @include mq($md) {
+        min-width: calc(100% - 15px);
+      }
+      margin: 0;
+      display: flex;
+      padding: 0;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        flex: 1 1 30%;
+        height: 30px;
+        .logoimg{
+          height: 100%;
+        }
+        @include mq($sm) {
+        flex: 0 0 0;
+        height: 20px;
+
+        }
+        @include mqh($xms) {
+        height: 20px;
+        }
+      }
+      .nav_link {
+        display: flex;
+        gap: pxToEm(32);
+        align-items: center;
+        width: fit-content;
+        .aLink {
+          cursor: pointer;
+          color: $blue;
+          font-family: $sf-pro-medium;
+          font-weight: 600;
+          text-align: left;
+          height: 30px;
+          width: auto;
+          aspect-ratio: 1/1;
+          color: $fontColorBlack;
+          text-decoration: none;
+          @include transition;
+          &:hover {
+            color: $blue;
+          }
+          @include mq($md) {
+            height: 24px;
+          }
+          @include mq($sm) {
+            height: 15px;
+          }
+          @include mqh($xms) {
+            height: 15px;
+            }
+          .logoImg {
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .active {
+          color: $blue;
+          border-bottom: 3px solid $blue;
+        }
+      }
+      .humbaga {
+        display: none;
+        cursor: pointer;
+        @include mq($md) {
+          margin-left: auto;
+          display: flex;
+        }
+      }
+    }
+  }
+}

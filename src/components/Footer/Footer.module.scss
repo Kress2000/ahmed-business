@@ -1,0 +1,61 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+
+#footer {
+  :global {
+    @include page-setting;
+    background: none;
+    justify-content: flex-start;
+    padding-left: 70%;
+    height: 60px;
+    display: flex;
+    align-items: flex-start;
+    @include mq($lg) {
+      padding-left: 60%;
+    }
+    @include mq(980px) {
+      align-items: center;
+    }
+    @include mq($md) {
+      height: 30px;
+      align-items: flex-start;
+      padding-left: 40%;
+      z-index: 100;
+      margin-top: 10px;
+    }
+    @include mq($sm) {
+      margin-top: 5px;
+
+    }
+    .nav_link {
+      display: flex;
+      gap: pxToEm(32);
+      align-items: center;
+      width: fit-content;
+      .aLink {
+        cursor: pointer;
+        color: $blue;
+        font-family: $sf-pro-medium;
+        font-weight: 600;
+        font-size: 18px;
+        text-align: left;
+        height: 30px;
+        color: $fontColorBlack;
+        text-decoration: none;
+        @include transition;
+        @include mq($md) {
+          font-size: 12px;
+          padding: 6px;
+          height: 100%;
+        }
+        &:hover {
+          color: $blue;
+        }
+      }
+      .active {
+        color: $blue;
+        border-bottom: 3px solid $blue;
+      }
+    }
+  }
+}

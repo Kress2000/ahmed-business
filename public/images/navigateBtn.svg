@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="navigateBtn" transform="translate(-1752 -893)">
+    <path id="navigatBtn" d="M25,0A25,25,0,0,1,50,25c0,5.04-4.211,13.891-4.211,13.891S33.768,50,25,50A25,25,0,0,1,25,0Z" transform="translate(1752 893)" fill="#0078ff"/>
+    <g id="arrow-up-right" transform="translate(1765 906)">
+      <g id="Group_9" data-name="Group 9">
+        <path id="Path_12" data-name="Path 12" d="M7,17,17,7" fill="none" stroke="#f5f5f5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Path_13" data-name="Path 13" d="M7,7H17V17" fill="none" stroke="#f5f5f5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+@import "../src/sass/variables.scss";
+@import "../src/sass/mixins.scss";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $background;
+  overflow-x: hidden;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  @include mqh($xms) {
+    overflow-y: scroll;
+    @include scroll-bar;
+  }
+}
+#pages {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  @include mqh($xls) {
+    gap: 15px;
+  }
+  padding: pxToVw(50);
+  @include mqh($md) {
+    padding: 15px;
+  }
+  position: fixed;
+  inset: 0;
+  
+}

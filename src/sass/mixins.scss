@@ -1,0 +1,303 @@
+@import "variables";
+
+@mixin transition {
+  transition: all 0.3s ease-out;
+}
+
+@mixin background-img {
+  background-size: cover;
+  // background-position: center;
+  background-position: 90%;
+  background-repeat: no-repeat;
+
+  @include mq(950px) {
+    background-position: 80%;
+  }
+
+  @include mq($md) {
+    background-position: right;
+  }
+
+  @include mq($sm) {
+    background-position: 80%;
+  }
+
+  @include mq($xms) {
+  }
+}
+
+@mixin h3 {
+  margin-top: 16px;
+  font-family: $open-sans-semi-bold;
+  font-weight: 600;
+  font-size: (16px);
+  letter-spacing: 0.17em;
+  line-height: 1;
+  text-align: left;
+  color: $music-page-white;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+@mixin svg-interaction {
+  svg {
+    path,
+    circle,
+    rect {
+      @include transition;
+    }
+
+    &:hover {
+      path,
+      circle,
+      rect {
+        stroke: $orange;
+        fill: $orange;
+      }
+    }
+  }
+}
+
+@mixin mq($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin mqh($size) {
+  @media screen and (max-height: $size) {
+    @content;
+  }
+}
+
+@mixin mqhmin($size) {
+  @media screen and (min-height: $size) {
+    @content;
+  }
+}
+
+@mixin scroll-bar {
+  &::-webkit-scrollbar {
+    width: (10px / $divider);
+
+    @include mq($xls) {
+      display: none;
+    }
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: lighten($color: $white, $amount: 0);
+
+    @include mq($xls) {
+      display: none;
+    }
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: darken($color: $blue, $amount: 0);
+    border-radius: 100px;
+    @include transition();
+
+    @include mq($xls) {
+      display: none;
+    }
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $blue;
+
+    @include mq($xls) {
+      display: none;
+    }
+  }
+}
+
+@mixin poppins-regular-16 {
+  font-family: $Heebo_Regular;
+  font-size: 16px;
+  color: $gray_color;
+}
+
+@mixin scroll-bar-hidden {
+  &::-webkit-scrollbar {
+    width: (10px / $divider);
+    display: none;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: lighten($color: $gray-main-color, $amount: 1);
+    display: none;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $blue;
+    border-radius: 100px;
+    display: none;
+    @include transition;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: lighten($color: $blue, $amount: 6);
+    display: none;
+  }
+}
+
+@mixin over-scroll-row {
+  @include mq($xls) {
+    width: auto;
+    flex-wrap: nowrap;
+    max-width: 100vw;
+    overflow: scroll;
+    @include scroll-bar-hidden;
+  }
+}
+
+@mixin col-md-xls {
+  @include mq($xls) {
+    max-width: calc((100% / 2) - 15px);
+    min-width: calc((100% / 2) - 15px);
+  }
+}
+
+@mixin grid($cols, $margin) {
+  -ms-flex: 0 0 (100%/ ($cols + $margin));
+  flex: 0 0 (100%/ ($cols + $margin));
+  max-width: (100%/ ($cols + $margin));
+  margin-right: ((100% / $cols)- (100%/ ($cols + $margin)));
+  margin-top: ((100% / $cols)- (100%/ ($cols + $margin)));
+
+  @include mq($xls) {
+    margin-top: 12%;
+  }
+}
+
+@function pxToVh($element) {
+  @return #{($element/1080) * 100}vh;
+}
+
+@function pxToVw($element) {
+  @return #{($element/1920) * 100}vw;
+}
+
+@function pxToEm($element) {
+  @return #{$element/16}em;
+}
+
+//mixin margins and paddings
+@mixin page-setting {
+  background: transparent;
+  max-width: calc(100vw - pxToVw(50));
+  height: fit-content;
+  padding: 0;
+  @include mqh($md) {
+    max-width: calc(100vw - 15px);
+  }
+}
+
+//title pages
+@mixin title-page {
+  font-family: $sf-pro-medium;
+  font-weight: 500;
+  font-size: pxToVw(64);
+  text-align: left;
+  color: $white;
+
+  @include mq($xlg) {
+    font-size: pxToVw(50);
+  }
+  @include mq($md) {
+    font-size: pxToVw(40);
+  }
+  @include mq($sm) {
+    font-size: pxToVw(14);
+  }
+  @include mqh($xms) {
+    font-size: 12px;
+  }
+}
+@mixin fontSiz-subtitl {
+  font-family: $sf-pro-medium;
+  font-size: pxToEm(16);
+  line-height: 1.3;
+  text-align: left;
+  color: $black;
+  @include mq(980px) {
+    font-size: pxToEm(14);
+  }
+  @include mq($sm) {
+    font-size: pxToEm(11);
+  }
+  @include mqh($xms) {
+    font-size: 10px;
+  }
+}
+@mixin info {
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  background-color: $blue;
+  border-radius: 18px;
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+  max-width: 284px;
+  
+
+  @include mq($xlg) {
+    max-width: 204px;
+  }
+
+  @include mq($md) {
+    max-width: 50%;
+    min-width: 50%;
+    height: fit-content;
+    font-size: 12px;
+  }
+
+  @include mq($sm) {
+    max-width: 70%;
+  }
+  @include mqh($xms) {
+    margin: 5px 0 5px auto;
+    max-width: 25% ;
+    min-width: 25% ;
+  }
+  @include mqh($xms) {
+    font-size: 10px;
+  }
+  .info_person {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    color: $white;
+    margin-bottom: 10px;
+
+    .info_img {
+      max-width: 36px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      height: auto;
+    }
+
+    .name {
+      font-family: $sf-pro-medium;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1;
+      text-align: left;
+    }
+
+    .description {
+      font-weight: 500;
+      @include fontSiz-subtitl;
+      margin-bottom: 30px;
+    }
+  }
+}
